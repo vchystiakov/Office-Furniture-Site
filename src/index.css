@@ -1,0 +1,289 @@
+/* Підключення шрифтів за допомогою директиви import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;600&family=PT+Sans:wght@400;700&display=swap');
+
+/* Стиль для всіх елементів */
+*{
+  margin:0px;
+  padding:0px;
+
+}
+
+/* Стиль для тіла сайту */
+body {
+  background-color: white;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+/* Стиль для класу який вміщує всі компоненти(обгортка*/
+
+.wrapper {
+  width: 1280px;
+  margin: 50px auto;
+}
+
+/* Стиль для лого шапки сайту */
+header .logo {
+    font-weight: 600px;
+    font-size: 20px;
+}
+
+/* Стиль для баннера магазину */
+header .presentation {
+  margin: 50px 0px;
+  background: url('./img/Main-banner.jpg');
+  width:100%;
+  height: 500px;
+  /* Властивість яка заповнює весь блок без дефектів */
+  background-size: cover;
+  background-position: center center;
+  /* Властивість яка дозволяє накласти додатковий колір на зображення */
+  background-blend-mode: multiply;
+  background-color: cornsilk;
+  /* Позиція основна */
+  position: relative;
+}
+
+/* Стиль для тексту який розташований після зображення(псевдоелемент) */
+header .presentation::after {
+  content: 'Best goods for your home';
+  /* Позиція яка заставляє елемент пропасти і зявитись заново */
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  width: 300px;
+  font-size: 40px;
+  font-weight: 600px;
+  color: #fff;
+}
+
+/* Стиль для текст який розташований перед зображенням(псевдоелемент) */
+header .presentation::before {
+  content: 'For low price';
+  position:absolute;
+  top: 200px;
+  left: 50px;
+  width: 300px;
+  font-size: 15px;
+  font-weight: 300px;
+  color:#fff;
+}
+
+/* Список з навігаційним меню */
+header  ul.nav li {
+  display: inline; /* Перетворює елемент в рядковий */
+  margin-left: 250px;
+  /* Створює ефект при наведенні перетворюючи курсор */
+  cursor: pointer;
+  /* Створює плавний перехід - змінює прозорість протягом 500 мілісекунд  */
+  transition: opacity 500ms;
+}
+
+/* Псевдоелемент hover який буде застосовувати стилі при наведенні на елемент */
+header ul.nav li:hover {
+  opacity: 0.5;
+
+}
+
+/* Футер */
+footer {
+  text-align: center;
+  margin-top: 100px;
+}
+
+/* Блок з категоріями товарів */
+.categories div {
+  display: inline-block;
+  background: gray;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin-bottom: 25px;
+  margin-right: 15px;
+  border: 1px solid transparent;
+  transition: all 500ms ease;
+  cursor: pointer;
+}
+
+/* Псевдоклас який буде застосовуватись при наведені */
+.categories div:hover {
+  border-color: black;
+  transform: scale(1.5);
+}
+
+/* Основний контент з товарами */
+main{
+  display:flex;
+  width: 100%;
+  flex-wrap: wrap; /* Дозволяє елементам переходити на нові рядки */
+  justify-content: space-between;
+}
+
+/*Одиниця товару*/
+main .item {
+  margin-bottom: 50px;
+  background-color: #f5f5f5;
+  width: 30%;
+  overflow: hidden;
+}
+
+/* Зображення товару */
+main .item img,
+.full-item img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  transition: transform 500ms ease;
+}
+
+/* Псевдоелемент який буде збільшувати зображення при наведенні */
+main .item img:hover,
+.full-item img:hover
+{
+  transform: scale(1.05);
+}
+
+/* Текст кожного елементу товару */
+main h2, main b, main p,
+.full-item h2, .full-item b, .full-item p {
+  margin: 10px;
+}
+
+/* Текст з ціною товару */
+main b, .full-item b {
+  color: green;
+}
+
+/* Кнопка добавляння товару в корзину */
+main .add-to-cart,
+.full-item .add-to-cart {
+ position: relative;
+ left: 300px;
+ background: #ca5252;
+ width: 35px;
+ height: 35px;
+ text-align: center;
+ line-height: 35px;
+ font-weight: 60px;
+ color:#f5f5f5;
+ border-radius: 50%;
+ cursor: pointer;
+}
+
+/* Псевдоелемент при наведенні */
+main .add-to-cart:hover,
+.full-item .add-to-cart:hover {
+  transform: scale(1.5) translateY(-5px)
+}
+
+/* Іконка корзини */
+header .shop-cart-button {
+  cursor: pointer;
+  float:right;
+  transition: color, transform 500ms ease;
+
+}
+
+/* Псевдоелемент зміни кольору іконки при наведенні та якщо вона буде активна */
+header .shop-cart-button:hover,
+header .shop-cart-button:active {
+  color: red;
+  transform: scale(1.25);
+}
+
+header {
+  position: relative;
+}
+
+/* Вікно корзини в якому відображатимуться предмети для покупки */
+header .shoping-cart {
+ position: absolute;
+ background: #fafafa;
+ top: 30px;
+ right: 0px;
+ width: 450px;
+ -webkit-box-shadow: 4px 5px 15px -7px #606060;
+ box-shadow: 4px 5px 15px -7px #606060;
+ z-index: 1000;
+ padding: 20px 20px;
+}
+
+/* Стиль для елементу товару в корзині */
+header .shoping-cart .item {
+  width: 100%;
+}
+
+/* Стиль для зображення елементу в корзині */
+header .shoping-cart .item img {
+  width: 70px;
+  float: left;
+  margin-right: 20px;
+}
+
+/* Текст елементу товару який знаходиться в корзині */
+header .shoping-cart .item h2 {
+font-size: 20px;
+margin-bottom: 10px;
+}
+
+/* Текст вартості та валюти одиниці товару в корзині */
+header .shoping-cart .item b {
+  color: lime;
+  font-weight: 600;
+}
+
+/* Текст корзини який відображає відсутність товару */
+header .shop-cart .empty h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Стиль для кнопки видалення товару з корзини */
+header .shoping-cart .item .delete-icon {
+  color: red;
+  float: right;
+  position: relative;
+  top: -25px;
+  cursor: pointer;
+  transition: color, transform 500ms ease;
+
+}
+
+/* Псевдоклас який буде міняти стиль при наведенні на іконку */
+header .shoping-cart .item .delete-icon:hover {
+  color: brown;
+  transform: scale(1.5)
+}
+
+/* Стиль для кнопки яка сумує ціну всього товару в корзині */
+header .shoping-cart .summary {
+  float: left;
+  width: 100%;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+
+}
+
+/* Стиль для модального вікна з одиницею товару */
+.full-item {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0,0,0,0.8);
+  /* Значення z-index велике оскільки модальне вікно має бути поверх всіх інших вікон */
+  z-index: 9999;
+  overflow: auto;
+}
+
+/* Стиль для вложеного всередину блоку div*/
+.full-item > div {
+  width: 600px;
+  position: relative;
+  margin: 10% auto;
+  padding: 40px 30px;
+  background: white;
+  border-radius: 9px;
+}
+
